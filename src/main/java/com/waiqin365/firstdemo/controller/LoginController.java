@@ -1,5 +1,6 @@
 package com.waiqin365.firstdemo.controller;
 
+import com.waiqin365.firstdemo.annotation.MyLog;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,6 +12,7 @@ public class LoginController {
 
     @RequestMapping(value = "/in", method = RequestMethod.GET)
     @ResponseBody
+    @MyLog()
     public String login() {
         return "you have login";
     }

@@ -25,4 +25,4 @@ regCenter:
 stockJob:
   cron: 0/5 * * * * ?                               #job执行定时cron函数
   shardingTotalCount: 6                             #分片总数
-  shardingItemParameters: 0=2,1=3,2=4,3=5           #用户定义分片含义  每个分片可定义个性化含义
+  shardingItemParameters: 0=分片1,1=分片2,2=分片3,3=分片4,4=分片5,5=分片6           #用户定义分片含义  每个分片可定义个性化含义
