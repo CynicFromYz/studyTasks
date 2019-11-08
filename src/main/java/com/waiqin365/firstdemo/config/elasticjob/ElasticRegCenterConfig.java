@@ -1,4 +1,4 @@
-package com.waiqin365.firstdemo.config;
+package com.waiqin365.firstdemo.config.elasticjob;
 
 import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperConfiguration;
 import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperRegistryCenter;

@@ -7,7 +7,7 @@ public class Single5Test {
 //           if (a<1000){
 //               System.out.println(a);
 //           }
-            System.out.println(Math.round(Math.random() * 10000));
+//            System.out.println(Math.round(Math.random() * 10000));
         }
     }
 }

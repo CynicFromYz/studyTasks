@@ -27,17 +27,4 @@ public class KafkaReceiver {
 
     }
 
-    public static void main(String[] args) {
-        List list = new ArrayList();
-        list.add("a");
-        list.add(null);
-        list.add("b");
-//        Optional caseStr = Optional.ofNullable(firstStr);
-//        System.out.println(.isPresent());
-        Optional.ofNullable(list).ifPresent(list1 -> list.stream().forEach(str -> {
-                    Optional.ofNullable(str).ifPresent(str1 -> System.out.println(str1));
-                }
-
-        ));
-    }
 }
