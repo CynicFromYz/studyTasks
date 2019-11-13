@@ -4,6 +4,8 @@ import org.apache.catalina.core.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.IOException;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -25,6 +27,12 @@ public class Single8Test {
         ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("");
         applicationContext.getBean("");
         String[] arr = new String[]{"1"};
+        Observer observer = new Observer() {
+            @Override
+            public void update(Observable o, Object arg) {
+
+            }
+        };
     }
 
     static void updateValue(String c){

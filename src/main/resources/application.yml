@@ -2,7 +2,7 @@
 # 指定kafka 代理地址，可以多个
 spring:
   kafka:
-    bootstrap-servers: 106.12.50.184:9092
+    bootstrap-servers: 106.12.50.184:9092 #本地连接云服务器  需要在本地做ip映射  eg[106.12.50.184 instance-9tay0r53]
     producer:
       retries: 0
       batch-size: 16384
@@ -31,7 +31,7 @@ spring:
         max-wait: -1ms    # 连接池最大阻塞等待时间（使用负值表示没有限制）
         max-idle: 10       # 连接池中的最大空闲连接
         min-idle: 5       # 连接池中的最小空闲连接
-    timeout: 3000
+    timeout: 5000
 
 
 

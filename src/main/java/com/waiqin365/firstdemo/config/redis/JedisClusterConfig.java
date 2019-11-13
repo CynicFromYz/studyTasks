@@ -1,11 +1,11 @@
 package com.waiqin365.firstdemo.config.redis;
 
-import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import redis.clients.jedis.HostAndPort;
 import redis.clients.jedis.JedisCluster;
+import redis.clients.jedis.JedisPoolConfig;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -29,7 +29,16 @@ public class JedisClusterConfig {
             String[] ipPortPair = ipPort.split(":");
             nodes.add(new HostAndPort(ipPortPair[0].trim(), Integer.valueOf(ipPortPair[1].trim())));
         }
-        return new JedisCluster(nodes, redisProperties.getCommandTimeout(), 1000, 1, redisProperties.getPassword(), new GenericObjectPoolConfig());
+        return new JedisCluster(nodes, redisProperties.getCommandTimeout(), 1000, 1, redisProperties.getPassword(), getJedisPoolConfig());
+    }
+
+    private JedisPoolConfig getJedisPoolConfig() {
+        JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
+        jedisPoolConfig.setMaxTotal(100);
+        jedisPoolConfig.setMaxIdle(1000); //设置最大空闲数
+        jedisPoolConfig.setMaxWaitMillis(3000);//设置超时时间
+        jedisPoolConfig.setTestOnBorrow(true);
+        return jedisPoolConfig;
     }
 
 //    @Value("${spring.redis.cluster.nodes}")
