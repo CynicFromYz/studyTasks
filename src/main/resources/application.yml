@@ -16,7 +16,7 @@ spring:
       auto-commit-interval: 100
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-#redis-cluster配置
+  #redis-cluster配置
   redis:
     database: 0
     password: cynic
@@ -45,4 +45,5 @@ stockJob:
   shardingTotalCount: 6                             #分片总数
   shardingItemParameters: 0=slice1,1=slice2,2=slice3,3=slice4,4=slice5,5=slice6           #用户定义分片含义  每个分片可定义个性化含义
 
-
+#消费者消费主题
+topics: zhangsan,wangwu

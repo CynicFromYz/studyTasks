@@ -13,6 +13,7 @@ import java.util.UUID;
 
 @Component
 public class KafkaSender {
+
     private final org.slf4j.Logger log = LoggerFactory.getLogger(getClass());
 
     @Autowired
@@ -26,7 +27,10 @@ public class KafkaSender {
         message.setId(System.currentTimeMillis());
         message.setMsg(UUID.randomUUID().toString());
         message.setSendTime(new Date());
-        log.info("====================  message = {}", gson.toJson(message));
-        kafkaTemplate.send("zhangsan", 4, "sd", gson.toJson(message));
+        message.setName("cynic_test");
+//        log.info("====================  message = {}", gson.toJson(message));
+//        kafkaTemplate.send("zhangsan", 4, "key", gson.toJson(message));
+        kafkaTemplate.send("zhangsan",gson.toJson(message));
+        kafkaTemplate.send("wangwu",gson.toJson(message));
     }
 }

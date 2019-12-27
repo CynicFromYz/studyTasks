@@ -10,6 +10,8 @@ public class Message {
 
     private Date sendTime;  //时间戳
 
+    private String name;
+
     public Long getId() {
         return id;
     }
@@ -34,12 +36,21 @@ public class Message {
         this.sendTime = sendTime;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
         return "Message{" +
                 "id=" + id +
                 ", msg='" + msg + '\'' +
                 ", sendTime=" + sendTime +
+                ", name='" + name + '\'' +
                 '}';
     }
 }
