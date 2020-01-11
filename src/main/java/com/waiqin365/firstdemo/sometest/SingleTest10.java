@@ -1,5 +1,7 @@
 package com.waiqin365.firstdemo.sometest;
 
+import cn.hutool.core.convert.Convert;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,7 +12,9 @@ import java.util.Map;
  */
 public class SingleTest10 {
     public static void main(String[] args) {
-        Map map = new HashMap();
-        System.out.println(map.get("test"));
+//        Map map = new HashMap();
+//        System.out.println(map.get("test"));
+//        Convert
+
     }
 }
