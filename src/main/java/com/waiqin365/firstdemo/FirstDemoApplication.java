@@ -1,5 +1,7 @@
 package com.waiqin365.firstdemo;
 
+import com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo;
+import com.waiqin365.firstdemo.util.ZkDistributedLockUtils;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
@@ -7,6 +9,7 @@ import org.springframework.cache.annotation.EnableCaching;
 
 @SpringBootApplication
 @EnableCaching
+@EnableDubbo
 public class FirstDemoApplication extends SpringBootServletInitializer {
 
     @Override

@@ -15,13 +15,13 @@ public class LazySingleton implements Serializable {
     private static volatile LazySingleton lazySingleton = null;
 
 
-    public LazySingleton() {
+    private LazySingleton() {
         if (lazySingleton != null) {
             throw new RuntimeException("禁止反射实例化");
         }
     }
 
-    public LazySingleton getLazySingletonInstance() {
+    public static LazySingleton getLazySingletonInstance() {
         if (lazySingleton == null) {
             synchronized (LazySingleton.class) {
                 if (lazySingleton == null) {
@@ -38,5 +38,7 @@ public class LazySingleton implements Serializable {
     private Object readResolve() throws ObjectStreamException {
         return lazySingleton;
     }
+
+
 
 }

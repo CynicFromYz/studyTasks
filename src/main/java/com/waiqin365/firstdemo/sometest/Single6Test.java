@@ -2,7 +2,6 @@ package com.waiqin365.firstdemo.sometest;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -29,7 +28,11 @@ public class Single6Test {
     }
 
     public static void main(String[] args) throws IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
-//        Integer integer  = new Integer(0);
+        list.stream().filter(student -> student.getSex().equals("M")).forEach(student -> student.setHeight(200f));
+        list.stream().forEach(student -> System.out.println(student.getHeight()));
+
+
+        //        Integer integer  = new Integer(0);
 //
 //        List<Integer> list = new ArrayList<>();//基本类型不能用作泛型
 //
@@ -88,7 +91,7 @@ public class Single6Test {
 //        stream.forEach(num -> System.out.println(num));
 //        list.sort(Student::compareTo);
 //        list.stream().forEach(student -> System.out.println(student.getHeight()));
-       list.sort(new StudentComparator());
+//       list.sort(new StudentComparator());
 
     }
 

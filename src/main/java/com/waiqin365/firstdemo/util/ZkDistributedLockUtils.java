@@ -29,7 +29,7 @@ public class ZkDistributedLockUtils implements Watcher {
     public ZkDistributedLockUtils(String productId) {
         this.productId = productId;
         try {
-            String address = "192.168.31.187:2181,192.168.31.19:2181,192.168.31.227:2181";
+            String address = "106.12.50.184:2181";
             zk = new ZooKeeper(address, sessionTimeout, this);
             connectedLatch.await();
         } catch (IOException e) {

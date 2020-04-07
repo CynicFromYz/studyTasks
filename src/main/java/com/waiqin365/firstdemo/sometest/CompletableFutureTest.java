@@ -1,6 +1,7 @@
 package com.waiqin365.firstdemo.sometest;
 
 import java.util.concurrent.*;
+import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
 /**
@@ -13,12 +14,9 @@ public class CompletableFutureTest {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException, TimeoutException {
         Long currentMillisBefore = System.currentTimeMillis();
-        Future<Integer> future = executorService.submit(new Callable<Integer>() {
-            @Override
-            public Integer call() throws Exception {
-                Thread.sleep(5000);
-                return 1;
-            }
+        Future<Integer> future = executorService.submit(() -> {
+            Thread.sleep(5000);
+            return 1;
         });
         Future<Integer> future2 = executorService.submit(() -> {
             Thread.sleep(5000);
@@ -29,13 +27,13 @@ public class CompletableFutureTest {
         Long currentMillisAfter = System.currentTimeMillis();
         System.out.println("耗时:" + (currentMillisAfter - currentMillisBefore));
         executorService.shutdown();
-//        CompletableFuture.supplyAsync(new Thread1(), executorService).whenComplete(new BiConsumer<String, String>() {
-//            @Override
-//            public void accept(String s, String s2) {
-//                System.out.println(s);
-//            }
-//        });
-//        executorService.shutdown();
+        CompletableFuture.supplyAsync(new Thread1(), executorService).whenComplete(new BiConsumer<String, String>() {
+            @Override
+            public void accept(String s, String s2) {
+                System.out.println(s);
+            }
+        });
+        executorService.shutdown();
     }
 
     static class Thread1 implements Supplier, Runnable {
