@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import redis.clients.jedis.JedisCluster;
 import redis.clients.jedis.exceptions.JedisException;
 
+import javax.annotation.PostConstruct;
 import java.util.Collections;
 import java.util.concurrent.TimeUnit;
 
@@ -85,6 +86,15 @@ public class RedisLockUtils {
         Long success = 1L;
         var5 = success.equals(result);
         return var5;
+    }
+
+    /**
+     *  bean实例化前执行
+     *
+     */
+    @PostConstruct
+    public void cs(){
+        System.out.println("aaaa");
     }
 
 
