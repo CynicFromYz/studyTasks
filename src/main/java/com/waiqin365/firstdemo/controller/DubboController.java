@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class DubboController {
 
-    @Reference
+    @Reference(loadbalance = "roundrobin")
     SayHelloService sayHelloService;
 
     @RequestMapping(value = "/check", method = RequestMethod.GET)

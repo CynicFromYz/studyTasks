@@ -10,7 +10,7 @@ import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.data.Stat;
 
 import java.sql.Time;
-import java.util.Date;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -26,7 +26,7 @@ public class CuratorClient {
         curatorFramework = CuratorFrameworkFactory.builder().connectString(zkAddr)
                 .sessionTimeoutMs(5000)
                 .retryPolicy(new ExponentialBackoffRetry(1000, 3))
-                .namespace("curator")
+//                .namespace("curator")
                 .build();
         curatorFramework.start();
 //        curatorFramework
@@ -39,11 +39,26 @@ public class CuratorClient {
 //        Stat stat = new Stat();
 //        System.out.println(new String(curatorFramework.getData().storingStatIn(stat).forPath("/04")));
 //        System.out.print("目前版本为:" + stat.getVersion() + "创建时间为:" + DateUtil.formatDateTime(new Date(stat.getCtime())));
-        final NodeCache nodeCache = new NodeCache(curatorFramework, "/04", false);
-        NodeCacheListener nodeCacheListener = () -> System.out.println("事件路径:" + nodeCache.getCurrentData().getPath() + "发生数据变化,新数据为" + new String(nodeCache.getCurrentData().getData()));
-        nodeCache.getListenable().addListener(nodeCacheListener);
-        nodeCache.start();
-        curatorFramework.setData().forPath("/04","love".getBytes());
-        TimeUnit.SECONDS.sleep(5);
+//        final NodeCache nodeCache = new NodeCache(curatorFramework, "/04", false);
+//        NodeCacheListener nodeCacheListener = () -> System.out.println("事件路径:" + nodeCache.getCurrentData().getPath() + "发生数据变化,新数据为" + new String(nodeCache.getCurrentData().getData()));
+//        nodeCache.getListenable().addListener(nodeCacheListener);
+//        nodeCache.start();
+//        curatorFramework.setData().forPath("/04","love".getBytes());
+////        TimeUnit.SECONDS.sleep(5);
+//
+//        curatorFramework.inTransaction().setData().forPath("/04","love520".getBytes()).and().delete().forPath("/04/23").and().commit();
+//        System.in.read();
+
+        curatorFramework.delete().deletingChildrenIfNeeded().forPath("/locks");
+        Map map = new HashMap();
+//        (map.entrySet() map:map){
+//
+//        }
+        String astr = "leetcode";
+        String[] a = astr.split("");
+        Set<String> set = new HashSet();
+
     }
+
+
 }

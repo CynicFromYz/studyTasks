@@ -6,7 +6,7 @@ package com.waiqin365.firstdemo.sometest;
  * @createTime 2019/10/19 10:25
  */
 public class ShopInfo {
-    private String shopId;
+    public String shopId;
 
     public String getShopId() {
         return shopId;
@@ -14,5 +14,12 @@ public class ShopInfo {
 
     public void setShopId(String shopId) {
         this.shopId = shopId;
+    }
+
+    private class InnerShop{
+        String shopId;
+        String getMe(){
+            return shopId;
+        }
     }
 }
